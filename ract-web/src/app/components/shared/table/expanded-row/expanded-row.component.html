@@ -1,0 +1,31 @@
+<div class="accordion-body pt-30 pb-30 pe-30 ps-30 m-0 bg-td-colour-bg-6 m-0">
+    <table class="table m-0">
+      <thead>
+        <tr>
+          <th scope="col">Application Number</th>
+          <th scope="col">Demographic</th>
+          <th scope="col">Email Communication</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-title="Application Number" class="pt-10 pb-10">7379030437</td>
+          <td data-title="Demographic" class="pt-10 pb-10 align-middle align-items-center justify-content-between">
+            <button class="btn td-btn-tertiary p-10 col-2" (click)="openOffcanvas('demographic')" aria-label="Open Demographic Information">
+              <span tabindex="0" class="td-icon-button" role="button">
+                <img src="img/Show.svg" alt="View Demographic Information">
+              </span>
+            </button>
+          </td>
+          <td data-title="Email Communication" class="pt-10 pb-10 align-middle align-items-center justify-content-between">
+            <button class="btn td-btn-tertiary p-10 col-2" (click)="openOffcanvas('email')" aria-label="Open Email Communication History">
+              <span tabindex="0" class="td-icon-button" role="button">
+                <img src="img/email_history.svg" width="30px" alt="View Email Communication History">
+              </span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

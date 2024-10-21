@@ -1,0 +1,249 @@
+<div class="offcanvas-header d-flex justify-content-between">
+    <h3 class="m-0 display-4">Demographic Information</h3>
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+  </div>
+  
+  <div class="offcanvas-body">
+    
+    <div class="row pe-20 ps-20">
+      <div class="col-12">
+        <table class="table border">
+          <thead>
+            <tr>
+              <th scope="col">Application Number</th>
+              <th scope="col">Account Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>7379030437</td>
+              <td>4829572146</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row justify-content-between">
+      <div class="col-auto">
+        <h3>Demographic Information Received</h3>
+      </div>
+      <div class="col-auto d-flex align-baseline bg-info pt-5 pb-5 rounded-5 align-items-center me-20">
+        <span aria-hidden="true" class="h3 td-icon td-icon-clock text-td-colour-information m-0 pe-5"></span>
+        <span class="td-small-copy ps-5 h3 m-0">11/19/2023</span>
+      </div>
+    </div>
+
+    <hr class="td-thin-divider-line-1 pt-10 pb-10">
+
+    <div class="row">
+      <div class="col-12 pt-10 pb-10">
+          <div class="row">
+            <div class="col-12">
+              <strong>What is your business ownership status?</strong>
+            </div>
+            <div class="col-12 ps-30">
+              <ul class="list-group ps-0">
+                <li class="list-group-item border-0">
+                  <div class="form-check d-flex">
+                    <input type="checkbox" id="checkboxDefault1" value="" disabled="" checked="" readonly>
+                    <label for="checkboxDefault1">Minority-owned business</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0">
+                  <div class="form-check d-flex">
+                    <input type="checkbox" id="checkboxDefault1" value="" disabled="" readonly>
+                    <label for="checkboxDefault1">Women-owned business</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0">
+                  <div class="form-check d-flex">
+                    <input type="checkbox" id="checkboxDefault1" value="" disabled="" readonly>
+                    <label for="checkboxDefault1">LGBTQ+-owned business</label>
+                  </div>
+                </li>
+              </ul>
+              <div class="row ps-10">
+                <div class="col-12">
+                  -OR-
+                </div>
+              </div>
+              <ul class="list-group ps-0">
+                <li class="list-group-item border-0">
+                  <div class="form-check d-flex">
+                    <input type="checkbox" id="checkboxDefault1" value="" disabled="" readonly>
+                    <label for="checkboxDefault1">None of these apply</label>
+                  </div>
+                </li>
+              </ul>
+              <div class="row ps-10">
+                <div class="col-12">
+                  -OR-
+                </div>
+              </div>
+              <ul class="list-group ps-0">
+                <li class="list-group-item border-0">
+                  <div class="form-check d-flex">
+                    <input type="checkbox" id="checkboxDefault1" value="" disabled="" readonly>
+                    <label for="checkboxDefault1">I do not wish to provide this information</label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 pt-10 pb-10">
+          <div class="row">
+            <div class="col-12">
+              <strong>How many principal owners does your business have?</strong>
+            </div>
+            <div class="col-12 ps-30">
+              <ul class="list-group ps-0">
+                <li class="list-group-item border-0">
+                  <div class="form-check d-flex">
+                    <input type="checkbox" id="checkboxDefault1" value="" disabled="" readonly>
+                    <label for="checkboxDefault1">0</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0">
+                  <div class="form-check d-flex">
+                    <input type="checkbox" id="checkboxDefault1" value="" disabled="" readonly>
+                    <label for="checkboxDefault1">1</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0">
+                  <div class="form-check d-flex">
+                    <input type="checkbox" id="checkboxDefault1" value="" disabled="" readonly>
+                    <label for="checkboxDefault1">2</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0">
+                  <div class="form-check d-flex">
+                    <input type="checkbox" id="checkboxDefault1" value="" disabled="" readonly>
+                    <label for="checkboxDefault1">3</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0">
+                  <div class="form-check d-flex">
+                    <input type="checkbox" id="checkboxDefault1" value="" disabled="" checked="" readonly>
+                    <label for="checkboxDefault1">4</label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+      </div>
+    </div>
+    
+    <div class="td-accordion accordion" id="demographicCollection">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="demographicCollection1">
+          <button class="accordion-button d-flex align-baseline collapsed justify-content-between" type="button" data-bs-toggle="td-collapse" data-bs-target="#Collection1" aria-expanded="false" aria-controls="Collection1">
+            Principal Owner 1
+          </button>
+        </h2>
+        <div id="Collection1" class="accordion-collapse collapse">
+          <div class="accordion-body pt-0 pb-0 ps-35 pe-35">
+            <div class="row">
+              <div class="col-12 pt-10 pb-10">
+                  <div class="row">
+                    <div class="col-12">
+                      <strong>Are you Hispanic or Latino?</strong>
+                      <p>i.e., What's your ethnicity</p>
+                    </div>
+                    <div class="col-12 ps-30">
+                      <ul class="list-group ps-0">
+                        <li class="list-group-item border-0">
+                          <div class="form-check d-flex">
+                            <input type="checkbox" id="checkboxDefault1" value="" disabled="" checked="" readonly>
+                            <label for="checkboxDefault1">Hispanic or Latino</label>
+                          </div>
+                        </li>
+                        <li class="list-group-item border-0">
+                          <ul class="list-group ps-0">
+                            <li class="list-group-item border-0">
+                              <div class="form-check d-flex">
+                                <input type="checkbox" id="checkboxDefault1" value="" disabled="" checked="" readonly>
+                                <label for="checkboxDefault1">Hispanic or Latino</label>
+                              </div>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <div class="row ps-10">
+                        <div class="col-12">
+                          -OR-
+                        </div>
+                      </div>
+                      <ul class="list-group ps-0">
+                        <li class="list-group-item border-0">
+                          <div class="form-check d-flex">
+                            <input type="checkbox" id="checkboxDefault1" value="" disabled="" readonly>
+                            <label for="checkboxDefault1">None of these apply</label>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="row ps-10">
+                        <div class="col-12">
+                          -OR-
+                        </div>
+                      </div>
+                      <ul class="list-group ps-0">
+                        <li class="list-group-item border-0">
+                          <div class="form-check d-flex">
+                            <input type="checkbox" id="checkboxDefault1" value="" disabled="" readonly>
+                            <label for="checkboxDefault1">I do not wish to provide this information</label>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="demographicCollection2">
+          <button class="accordion-button d-flex align-baseline collapsed justify-content-between" type="button" data-bs-toggle="td-collapse" data-bs-target="#Collection2" aria-expanded="false" aria-controls="Collection1">
+            Principal Owner 2
+          </button>
+        </h2>
+        <div id="Collection2" class="accordion-collapse collapse">
+          <div class="accordion-body pt-0 pb-0 ps-20 pe-20">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="demographicCollection3">
+          <button class="accordion-button d-flex align-baseline collapsed justify-content-between" type="button" data-bs-toggle="td-collapse" data-bs-target="#Collection3" aria-expanded="false" aria-controls="Collection1">
+            Principal Owner 3
+          </button>
+        </h2>
+        <div id="Collection3" class="accordion-collapse collapse">
+          <div class="accordion-body pt-0 pb-0 ps-20 pe-20">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="demographicCollection4">
+          <button class="accordion-button d-flex align-baseline collapsed justify-content-between" type="button" data-bs-toggle="td-collapse" data-bs-target="#Collection4" aria-expanded="false" aria-controls="Collection1">
+            Principal Owner 4
+          </button>
+        </h2>
+        <div id="Collection4" class="accordion-collapse collapse">
+          <div class="accordion-body pt-0 pb-0 ps-20 pe-20">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+

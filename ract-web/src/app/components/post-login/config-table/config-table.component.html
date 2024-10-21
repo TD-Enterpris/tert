@@ -1,0 +1,118 @@
+<div>
+    <div class="row pt-20 pb-20">
+        <div class="col-12 justify-content-end d-flex">
+            <button class="btn td-btn-primary-light" (click)="addRow()">Add New Record</button>
+        </div>
+    </div>
+
+    <div class="td-temporal-message bg-danger mb-20" *ngIf="errorMessage">
+        <div class="d-flex align-items-center">
+            <span aria-hidden="true" class="td-icon icon-regular td-icon-error"></span>
+            <span class="visually-hidden">Confirmation</span>
+            <p>{{ errorMessage }}</p>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered td-table-border-top-bottom-clear td-table-border-start-end-clear td-table-border-col-clear td-table-border-col-colour-1">
+            <thead>
+                <tr>
+                    <th>RegC Id</th>
+                    <th>Config Name</th>
+                    <th>Config Value</th>
+                    <th>Description</th>
+                    <th>IsActive</th>
+                    <th>Effective Start Date</th>
+                    <th>Effective End Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of rows; let i = index" class="align-middle">
+                    <!-- RegC Id -->
+                    <td *ngIf="!row.isEditMode">
+                        <input type="text" class="form-control border-0 bg-transparent no-hover p-0 m-0"
+                            [value]="row.regcId" readonly />
+                    </td>
+                    <td *ngIf="row.isEditMode">
+                        <input type="text" class="form-control" [(ngModel)]="row.regcId"
+                            [ngClass]="{ 'is-invalid': row.isInvalid && !row.regcId }" placeholder="Enter RegC Id" />
+                    </td>
+
+                    <!-- Config Name -->
+                    <td *ngIf="!row.isEditMode">
+                        <input type="text" class="form-control border-0 bg-transparent no-hover p-0 m-0"
+                            [value]="row.configName" readonly />
+                    </td>
+                    <td *ngIf="row.isEditMode">
+                        <input type="text" class="form-control" [(ngModel)]="row.configName"
+                            [ngClass]="{ 'is-invalid': row.isInvalid && !row.configName }" placeholder="Enter Config Name" />
+                    </td>
+
+                    <!-- Config Value -->
+                    <td *ngIf="!row.isEditMode">
+                        <input type="text" class="form-control border-0 bg-transparent no-hover p-0 m-0"
+                            [value]="row.configValue" readonly />
+                    </td>
+                    <td *ngIf="row.isEditMode">
+                        <input type="text" class="form-control" [(ngModel)]="row.configValue"
+                            [ngClass]="{ 'is-invalid': row.isInvalid && !row.configValue }" placeholder="Enter Config Value" />
+                    </td>
+
+                    <!-- Description -->
+                    <td *ngIf="!row.isEditMode">
+                        <input type="text" class="form-control border-0 bg-transparent no-hover p-0 m-0"
+                            [value]="row.description" readonly />
+                    </td>
+                    <td *ngIf="row.isEditMode">
+                        <input type="text" class="form-control" [(ngModel)]="row.description"
+                            [ngClass]="{ 'is-invalid': row.isInvalid && !row.description }" placeholder="Enter Description" />
+                    </td>
+
+                    <!-- IsActive Toggle Switch -->
+                    <td *ngIf="!row.isEditMode">
+                        <div class="form-check form-switch td-small-toggle">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="row.isActive"
+                                [disabled]="!row.isEditMode" id="smallToggle{{i}}">
+                            <label class="form-check-label" for="smallToggle{{i}}">{{ row.isActive ? 'Yes' : 'No' }}</label>
+                        </div>
+                    </td>
+                    <td *ngIf="row.isEditMode">
+                        <div class="form-check form-switch td-small-toggle">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="row.isActive"
+                                id="smallToggleEdit{{i}}">
+                            <label class="form-check-label" for="smallToggleEdit{{i}}">{{ row.isActive ? 'Yes' : 'No' }}</label>
+                        </div>
+                    </td>
+
+                    <!-- Effective Start Date -->
+                    <td *ngIf="!row.isEditMode">
+                        <input type="text" class="form-control border-0 bg-transparent no-hover p-0 m-0"
+                            [value]="row.effectiveStartDate | date: 'yyyy-MM-dd'" readonly />
+                    </td>
+                    <td *ngIf="row.isEditMode">
+                        <input type="date" class="form-control" [(ngModel)]="row.effectiveStartDate"
+                            [ngClass]="{ 'is-invalid': row.isInvalid && !row.effectiveStartDate }" />
+                    </td>
+
+                    <!-- Effective End Date -->
+                    <td *ngIf="!row.isEditMode">
+                        <input type="text" class="form-control border-0 bg-transparent no-hover p-0 m-0"
+                            [value]="row.effectiveEndDate | date: 'yyyy-MM-dd'" readonly />
+                    </td>
+                    <td *ngIf="row.isEditMode">
+                        <input type="date" class="form-control" [(ngModel)]="row.effectiveEndDate"
+                            [ngClass]="{ 'is-invalid': row.isInvalid && !row.effectiveEndDate }" />
+                    </td>
+
+                    <!-- Actions: Edit or Save button based on isEditMode -->
+                    <td>
+                        <button class="btn btn-sm td-btn-tertiary" *ngIf="!row.isEditMode"
+                            (click)="editRow(i)">Edit</button>
+                        <button class="btn btn-sm td-btn-primary-light" *ngIf="row.isEditMode" (click)="saveRow(i)">Save</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

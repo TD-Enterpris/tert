@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-12">
+    <!-- Search bar with collapsible functionality -->
+    <div class="row mt-20 align-items-center">
+      <div class="col-auto ps-0 mb-20 mt-20">
+        <button class="searchEl btn td-btn-primary-light" type="button" (click)="toggleSearchCollapse()">
+          <span class="td-icon td-icon-search"></span>
+        </button>
+      </div>
+      <div class="col-auto">
+        <!-- Heading dynamically updates based on the search results -->
+        <h2 class="mb-0">{{ heading }}</h2>
+      </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="row m-0 pt-20">
+      <div class="col-12">
+        <!-- Table component for displaying search results -->
+        <app-table *ngIf="displayTable"></app-table>
+      </div>
+    </div>
+
+    <!-- Pagination (only show if there are more than 10 results) -->
+    <div class="row">
+      <div class="col-12" *ngIf="tableData.length > 10">
+        <app-search-results-table-pagination></app-search-results-table-pagination>
+      </div>
+    </div>
+  </div>
+</div>

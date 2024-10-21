@@ -1,0 +1,8 @@
+.td-header-nav-dropdown-items {
+    display: none;  /* Hidden by default */
+  }
+  
+  .td-header-nav-dropdown-items.show {
+    display: block !important; /* Visible when the 'show' class is added */
+  }
+  

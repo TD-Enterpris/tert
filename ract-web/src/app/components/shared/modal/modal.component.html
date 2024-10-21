@@ -1,0 +1,17 @@
+<div class="td-mmodal modal d-flex" id="narrowModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Session Timeout Warning</h5>
+      </div>
+      <div class="modal-body">
+        <p>Your session will expire in {{ countdown }} seconds due to inactivity.</p>
+        <p>You will be logged out automatically if no action is taken. Do you want to continue your session?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+        <button type="button" class="btn btn-primary" (click)="continueSession()">Continue Session</button>
+      </div>      
+    </div>
+  </div>
+</div>

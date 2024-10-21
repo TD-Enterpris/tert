@@ -1,0 +1,802 @@
+[
+    {
+        "loanDetails": {
+            "applicationNumber": "8320985306",
+            "applicationDate": "2022-01-07T04:17:36",
+            "source": "SBCP",
+            "accounts": [
+                {
+                    "accountNumber": "8774435478",
+                    "productPackage": "PKG74524"
+                },
+                {
+                    "accountNumber": "9712508095",
+                    "productPackage": "PKG29082"
+                },
+                {
+                    "accountNumber": "2255094166",
+                    "productPackage": "PKG99660"
+                },
+                {
+                    "accountNumber": "1869644267",
+                    "productPackage": "PKG91825"
+                }
+            ]
+        },
+        "pdi": [
+            {
+                "numberOfPrincipleOwner": 4,
+                "gender": "Male",
+                "notToRespondSec1": true,
+                "notToRespondSec2": true,
+                "consentTimeStampSec1": "2022-04-06T12:58:17",
+                "consentTimeStampSec2": "2021-11-14T05:17:58",
+                "createdTimestamp": "2019-01-14T03:52:11",
+                "sentTimestamp": "2022-03-31T05:54:11",
+                "clickedTimestamp": "2020-08-20T05:50:29",
+                "collectedTimestamp": "2022-02-10T12:55:13",
+                "businessOwnershipStatuses": [
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    }
+                ],
+                "ethnicities": [
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Cuban",
+                        "description": "Cuba"
+                    },
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Mexican",
+                        "description": "Mexico"
+                    },
+                    {
+                        "ethnicity": "Not Hispanic or Latino",
+                        "subEthinicity": "",
+                        "description": ""
+                    },
+                    {
+                        "ethnicity": "I do not wish to provide my ethnicity",
+                        "subEthinicity": "",
+                        "description": ""
+                    }
+                ],
+                "races": [
+                    {
+                        "race": "American Indian or Alaska Native",
+                        "subRace": "",
+                        "description": ""
+                    },
+                    {
+                        "race": "White",
+                        "subRace": "",
+                        "description": ""
+                    },
+                    {
+                        "race": "Native Hawaiian or Other Pacific Islander",
+                        "subRace": "Samoan",
+                        "description": "Samoa"
+                    },
+                    {
+                        "race": "Native Hawaiian or Other Pacific Islander",
+                        "subRace": "Samoan",
+                        "description": "Samoa"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "loanDetails": {
+            "applicationNumber": "9898248941",
+            "applicationDate": "2019-12-10T21:57:26",
+            "source": "SBCP",
+            "accounts": [
+                {
+                    "accountNumber": "3467297977",
+                    "productPackage": "PKG70340"
+                },
+                {
+                    "accountNumber": "2132157693",
+                    "productPackage": "PKG64853"
+                },
+                {
+                    "accountNumber": "4490745373",
+                    "productPackage": "PKG43393"
+                }
+            ]
+        },
+        "pdi": [
+            {
+                "numberOfPrincipleOwner": 3,
+                "gender": "Female",
+                "notToRespondSec1": true,
+                "notToRespondSec2": true,
+                "consentTimeStampSec1": "2019-10-31T03:07:05",
+                "consentTimeStampSec2": "2022-11-26T11:44:53",
+                "createdTimestamp": "2021-10-18T01:57:04",
+                "sentTimestamp": "2020-12-06T22:12:30",
+                "clickedTimestamp": "2022-03-15T13:16:36",
+                "collectedTimestamp": "2020-12-22T19:54:40",
+                "businessOwnershipStatuses": [
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    }
+                ],
+                "ethnicities": [
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Cuban",
+                        "description": "Cuba"
+                    },
+                    {
+                        "ethnicity": "I do not wish to provide my ethnicity",
+                        "subEthinicity": "",
+                        "description": ""
+                    },
+                    {
+                        "ethnicity": "I do not wish to provide my ethnicity",
+                        "subEthinicity": "",
+                        "description": ""
+                    }
+                ],
+                "races": [
+                    {
+                        "race": "American Indian or Alaska Native",
+                        "subRace": "",
+                        "description": ""
+                    },
+                    {
+                        "race": "I do not wish to provide",
+                        "subRace": "",
+                        "description": ""
+                    },
+                    {
+                        "race": "White",
+                        "subRace": "",
+                        "description": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "loanDetails": {
+            "applicationNumber": "3164557859",
+            "applicationDate": "2021-06-01T00:03:20",
+            "source": "SBCP",
+            "accounts": [
+                {
+                    "accountNumber": "3405327288",
+                    "productPackage": "PKG56953"
+                },
+                {
+                    "accountNumber": "3988034701",
+                    "productPackage": "PKG59372"
+                },
+                {
+                    "accountNumber": "9484187669",
+                    "productPackage": "PKG18103"
+                }
+            ]
+        },
+        "pdi": [
+            {
+                "numberOfPrincipleOwner": 3,
+                "gender": "Male",
+                "notToRespondSec1": true,
+                "notToRespondSec2": true,
+                "consentTimeStampSec1": "2019-07-09T10:12:45",
+                "consentTimeStampSec2": "2020-11-10T06:51:09",
+                "createdTimestamp": "2021-02-15T08:04:06",
+                "sentTimestamp": "2020-07-10T04:59:10",
+                "clickedTimestamp": "2020-04-10T16:20:03",
+                "collectedTimestamp": "2021-06-22T12:41:47",
+                "businessOwnershipStatuses": [
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    }
+                ],
+                "ethnicities": [
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Puerto Rican",
+                        "description": "Puerto Rico"
+                    },
+                    {
+                        "ethnicity": "Not Hispanic or Latino",
+                        "subEthinicity": "",
+                        "description": ""
+                    },
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Cuban",
+                        "description": "Cuba"
+                    }
+                ],
+                "races": [
+                    {
+                        "race": "Black or African American",
+                        "subRace": "Jamaican",
+                        "description": "Jamaica"
+                    },
+                    {
+                        "race": "Native Hawaiian or Other Pacific Islander",
+                        "subRace": "Samoan",
+                        "description": "Samoa"
+                    },
+                    {
+                        "race": "White",
+                        "subRace": "",
+                        "description": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "loanDetails": {
+            "applicationNumber": "4250671312",
+            "applicationDate": "2020-06-18T04:42:50",
+            "source": "SBCP",
+            "accounts": [
+                {
+                    "accountNumber": "1231169700",
+                    "productPackage": "PKG67439"
+                }
+            ]
+        },
+        "pdi": [
+            {
+                "numberOfPrincipleOwner": 1,
+                "gender": "I do not wish to provide",
+                "notToRespondSec1": true,
+                "notToRespondSec2": true,
+                "consentTimeStampSec1": "2019-09-22T11:05:45",
+                "consentTimeStampSec2": "2021-01-12T02:46:46",
+                "createdTimestamp": "2022-12-24T04:29:45",
+                "sentTimestamp": "2022-06-05T15:24:08",
+                "clickedTimestamp": "2020-09-15T13:58:06",
+                "collectedTimestamp": "2020-09-19T20:44:58",
+                "businessOwnershipStatuses": [
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    }
+                ],
+                "ethnicities": [
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Mexican",
+                        "description": "Mexico"
+                    }
+                ],
+                "races": [
+                    {
+                        "race": "I do not wish to provide",
+                        "subRace": "",
+                        "description": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "loanDetails": {
+            "applicationNumber": "2085968115",
+            "applicationDate": "2021-07-14T13:06:13",
+            "source": "SBCP",
+            "accounts": [
+                {
+                    "accountNumber": "7673648798",
+                    "productPackage": "PKG62245"
+                },
+                {
+                    "accountNumber": "5595428121",
+                    "productPackage": "PKG51784"
+                },
+                {
+                    "accountNumber": "1475989971",
+                    "productPackage": "PKG72789"
+                },
+                {
+                    "accountNumber": "4255571038",
+                    "productPackage": "PKG96335"
+                }
+            ]
+        },
+        "pdi": [
+            {
+                "numberOfPrincipleOwner": 4,
+                "gender": "I do not wish to provide",
+                "notToRespondSec1": false,
+                "notToRespondSec2": true,
+                "consentTimeStampSec1": "2021-12-03T15:54:04",
+                "consentTimeStampSec2": "2019-09-18T13:14:55",
+                "createdTimestamp": "2020-09-20T16:38:05",
+                "sentTimestamp": "2019-01-25T18:32:24",
+                "clickedTimestamp": "2020-10-09T12:27:59",
+                "collectedTimestamp": "2022-04-07T13:15:28",
+                "businessOwnershipStatuses": [
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    }
+                ],
+                "ethnicities": [
+                    {
+                        "ethnicity": "I do not wish to provide my ethnicity",
+                        "subEthinicity": "",
+                        "description": ""
+                    },
+                    {
+                        "ethnicity": "I do not wish to provide my ethnicity",
+                        "subEthinicity": "",
+                        "description": ""
+                    },
+                    {
+                        "ethnicity": "I do not wish to provide my ethnicity",
+                        "subEthinicity": "",
+                        "description": ""
+                    },
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Puerto Rican",
+                        "description": "Puerto Rico"
+                    }
+                ],
+                "races": [
+                    {
+                        "race": "White",
+                        "subRace": "",
+                        "description": ""
+                    },
+                    {
+                        "race": "Native Hawaiian or Other Pacific Islander",
+                        "subRace": "Samoan",
+                        "description": "Samoa"
+                    },
+                    {
+                        "race": "American Indian or Alaska Native",
+                        "subRace": "",
+                        "description": ""
+                    },
+                    {
+                        "race": "Asian",
+                        "subRace": "Korean",
+                        "description": "Asia"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "loanDetails": {
+            "applicationNumber": "2150514405",
+            "applicationDate": "2019-06-30T12:57:29",
+            "source": "SBCP",
+            "accounts": [
+                {
+                    "accountNumber": "9531306851",
+                    "productPackage": "PKG31399"
+                },
+                {
+                    "accountNumber": "6795598462",
+                    "productPackage": "PKG12104"
+                },
+                {
+                    "accountNumber": "9855331831",
+                    "productPackage": "PKG45193"
+                },
+                {
+                    "accountNumber": "7658015425",
+                    "productPackage": "PKG55542"
+                }
+            ]
+        },
+        "pdi": [
+            {
+                "numberOfPrincipleOwner": 4,
+                "gender": "I do not wish to provide",
+                "notToRespondSec1": true,
+                "notToRespondSec2": false,
+                "consentTimeStampSec1": "2019-01-09T15:17:36",
+                "consentTimeStampSec2": "2019-06-26T12:32:43",
+                "createdTimestamp": "2022-03-21T16:47:35",
+                "sentTimestamp": "2020-06-23T10:18:27",
+                "clickedTimestamp": "2021-01-03T09:24:28",
+                "collectedTimestamp": "2021-01-01T02:47:58",
+                "businessOwnershipStatuses": [
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    }
+                ],
+                "ethnicities": [
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Puerto Rican",
+                        "description": "Puerto Rico"
+                    },
+                    {
+                        "ethnicity": "Not Hispanic or Latino",
+                        "subEthinicity": "",
+                        "description": ""
+                    },
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Puerto Rican",
+                        "description": "Puerto Rico"
+                    },
+                    {
+                        "ethnicity": "Not Hispanic or Latino",
+                        "subEthinicity": "",
+                        "description": ""
+                    }
+                ],
+                "races": [
+                    {
+                        "race": "Native Hawaiian or Other Pacific Islander",
+                        "subRace": "Samoan",
+                        "description": "Samoa"
+                    },
+                    {
+                        "race": "Asian",
+                        "subRace": "Korean",
+                        "description": "Asia"
+                    },
+                    {
+                        "race": "I do not wish to provide",
+                        "subRace": "",
+                        "description": ""
+                    },
+                    {
+                        "race": "Native Hawaiian or Other Pacific Islander",
+                        "subRace": "Samoan",
+                        "description": "Samoa"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "loanDetails": {
+            "applicationNumber": "5941858957",
+            "applicationDate": "2021-04-10T17:21:55",
+            "source": "SBCP",
+            "accounts": [
+                {
+                    "accountNumber": "9979647510",
+                    "productPackage": "PKG58205"
+                },
+                {
+                    "accountNumber": "9807599803",
+                    "productPackage": "PKG83816"
+                }
+            ]
+        },
+        "pdi": [
+            {
+                "numberOfPrincipleOwner": 2,
+                "gender": "Male",
+                "notToRespondSec1": false,
+                "notToRespondSec2": false,
+                "consentTimeStampSec1": "2019-11-08T23:53:35",
+                "consentTimeStampSec2": "2021-03-23T07:00:21",
+                "createdTimestamp": "2020-02-04T14:15:19",
+                "sentTimestamp": "2019-06-28T15:31:47",
+                "clickedTimestamp": "2020-03-09T01:26:17",
+                "collectedTimestamp": "2021-06-19T20:51:31",
+                "businessOwnershipStatuses": [
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    }
+                ],
+                "ethnicities": [
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Puerto Rican",
+                        "description": "Puerto Rico"
+                    },
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Cuban",
+                        "description": "Cuba"
+                    }
+                ],
+                "races": [
+                    {
+                        "race": "I do not wish to provide",
+                        "subRace": "",
+                        "description": ""
+                    },
+                    {
+                        "race": "Black or African American",
+                        "subRace": "Jamaican",
+                        "description": "Jamaica"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "loanDetails": {
+            "applicationNumber": "3706018472",
+            "applicationDate": "2021-01-11T03:11:59",
+            "source": "SBCP",
+            "accounts": [
+                {
+                    "accountNumber": "9700196168",
+                    "productPackage": "PKG62276"
+                },
+                {
+                    "accountNumber": "7296636077",
+                    "productPackage": "PKG33185"
+                },
+                {
+                    "accountNumber": "1691975437",
+                    "productPackage": "PKG81329"
+                },
+                {
+                    "accountNumber": "8276933934",
+                    "productPackage": "PKG65715"
+                }
+            ]
+        },
+        "pdi": [
+            {
+                "numberOfPrincipleOwner": 4,
+                "gender": "Male",
+                "notToRespondSec1": true,
+                "notToRespondSec2": true,
+                "consentTimeStampSec1": "2022-06-15T00:04:27",
+                "consentTimeStampSec2": "2020-05-21T04:55:05",
+                "createdTimestamp": "2019-11-09T13:07:56",
+                "sentTimestamp": "2022-08-04T17:49:45",
+                "clickedTimestamp": "2022-12-05T11:45:19",
+                "collectedTimestamp": "2019-01-04T01:00:24",
+                "businessOwnershipStatuses": [
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    }
+                ],
+                "ethnicities": [
+                    {
+                        "ethnicity": "I do not wish to provide my ethnicity",
+                        "subEthinicity": "",
+                        "description": ""
+                    },
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Mexican",
+                        "description": "Mexico"
+                    },
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Mexican",
+                        "description": "Mexico"
+                    },
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Puerto Rican",
+                        "description": "Puerto Rico"
+                    }
+                ],
+                "races": [
+                    {
+                        "race": "White",
+                        "subRace": "",
+                        "description": ""
+                    },
+                    {
+                        "race": "American Indian or Alaska Native",
+                        "subRace": "",
+                        "description": ""
+                    },
+                    {
+                        "race": "Native Hawaiian or Other Pacific Islander",
+                        "subRace": "Samoan",
+                        "description": "Samoa"
+                    },
+                    {
+                        "race": "White",
+                        "subRace": "",
+                        "description": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "loanDetails": {
+            "applicationNumber": "7333380871",
+            "applicationDate": "2021-03-27T16:52:43",
+            "source": "SBCP",
+            "accounts": [
+                {
+                    "accountNumber": "5691235859",
+                    "productPackage": "PKG48596"
+                },
+                {
+                    "accountNumber": "2827591475",
+                    "productPackage": "PKG85590"
+                },
+                {
+                    "accountNumber": "8346791542",
+                    "productPackage": "PKG30925"
+                },
+                {
+                    "accountNumber": "3377115554",
+                    "productPackage": "PKG44358"
+                }
+            ]
+        },
+        "pdi": [
+            {
+                "numberOfPrincipleOwner": 4,
+                "gender": "I do not wish to provide",
+                "notToRespondSec1": true,
+                "notToRespondSec2": false,
+                "consentTimeStampSec1": "2019-12-16T10:57:32",
+                "consentTimeStampSec2": "2019-07-24T11:08:15",
+                "createdTimestamp": "2021-02-14T08:38:39",
+                "sentTimestamp": "2020-04-11T03:57:07",
+                "clickedTimestamp": "2021-07-10T07:36:55",
+                "collectedTimestamp": "2021-02-25T07:04:22",
+                "businessOwnershipStatuses": [
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Women-owned business"
+                    },
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    }
+                ],
+                "ethnicities": [
+                    {
+                        "ethnicity": "Not Hispanic or Latino",
+                        "subEthinicity": "",
+                        "description": ""
+                    },
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Cuban",
+                        "description": "Cuba"
+                    },
+                    {
+                        "ethnicity": "I do not wish to provide my ethnicity",
+                        "subEthinicity": "",
+                        "description": ""
+                    },
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Mexican",
+                        "description": "Mexico"
+                    }
+                ],
+                "races": [
+                    {
+                        "race": "Asian",
+                        "subRace": "Korean",
+                        "description": "Asia"
+                    },
+                    {
+                        "race": "White",
+                        "subRace": "",
+                        "description": ""
+                    },
+                    {
+                        "race": "Black or African American",
+                        "subRace": "Jamaican",
+                        "description": "Jamaica"
+                    },
+                    {
+                        "race": "Native Hawaiian or Other Pacific Islander",
+                        "subRace": "Samoan",
+                        "description": "Samoa"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "loanDetails": {
+            "applicationNumber": "9227122747",
+            "applicationDate": "2022-12-30T00:56:41",
+            "source": "SBCP",
+            "accounts": [
+                {
+                    "accountNumber": "8653805088",
+                    "productPackage": "PKG38395"
+                }
+            ]
+        },
+        "pdi": [
+            {
+                "numberOfPrincipleOwner": 1,
+                "gender": "Male",
+                "notToRespondSec1": false,
+                "notToRespondSec2": true,
+                "consentTimeStampSec1": "2022-11-19T01:23:21",
+                "consentTimeStampSec2": "2022-06-18T02:54:30",
+                "createdTimestamp": "2019-08-23T08:01:59",
+                "sentTimestamp": "2019-04-08T05:26:06",
+                "clickedTimestamp": "2020-08-11T13:24:26",
+                "collectedTimestamp": "2021-02-11T23:39:38",
+                "businessOwnershipStatuses": [
+                    {
+                        "businessOwnershipStatus": "Minority-owned business"
+                    }
+                ],
+                "ethnicities": [
+                    {
+                        "ethnicity": "Hispanic or Latino",
+                        "subEthinicity": "Mexican",
+                        "description": "Mexico"
+                    }
+                ],
+                "races": [
+                    {
+                        "race": "American Indian or Alaska Native",
+                        "subRace": "",
+                        "description": ""
+                    }
+                ]
+            }
+        ]
+    }
+]

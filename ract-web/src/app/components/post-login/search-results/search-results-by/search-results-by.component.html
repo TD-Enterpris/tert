@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-12">
+        <div class="collapse collapse-horizontal show" id="searchExp">
+            <div class="row m-0 search-content">
+                <div class="col-12 text-center mt-25 mb-20">
+                    <h2 class="mb-0">Search by Application/Account</h2>
+                </div>
+
+                <!-- Error message display -->
+                <div class="td-temporal-message bg-warning mb-20" *ngIf="errorMessage">
+                    <div class="d-flex align-items-center">
+                      <span aria-hidden="true" class="td-icon icon-regular td-icon-warning"></span>
+                      <span class="visually-hidden">Confirmation</span>
+                      <p>{{ errorMessage }}</p>
+                      <!-- Close button with click handler to remove error message and clear inputs -->
+                      <button class="td-icon-button-delete td-icon-button-delete-xs" 
+                              aria-label="close" 
+                              (click)="clearErrorMessage()"> <!-- Added click handler -->
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                  </div>
+                  
+
+                <!-- Input for Application Number -->
+                <div class="col-12 mb-20">
+                    <label for="applicationNumber" class="form-label">Application Number</label>
+                    <input type="text" class="form-control" id="applicationNumber"
+                        [(ngModel)]="applicationNumber"
+                        (keypress)="allowOnlyNumbers($event)"
+                        placeholder="Enter your Application Number">
+                </div>
+
+                <!-- Input for Account Number -->
+                <div class="col-12 mb-20">
+                    <label for="accountNumber" class="form-label">Account Number</label>
+                    <input type="text" class="form-control" id="accountNumber"
+                        [(ngModel)]="accountNumber"
+                        (keypress)="allowOnlyNumbers($event)"
+                        placeholder="Enter your Account Number">
+                </div>
+
+                <!-- Input for Application Date Range -->
+                <div class="col-12 mt-10">
+                    <h4>Application Date Range</h4>
+                </div>
+                <div class="col-12 mb-20">
+                    <label for="fromDate" class="form-label">From Date</label>
+                    <input type="date" class="form-control" id="fromDate"
+                        [(ngModel)]="fromDate">
+                </div>
+                <div class="col-12 mb-20">
+                    <label for="toDate" class="form-label">To Date</label>
+                    <input type="date" id="toDate" class="form-control"
+                        [(ngModel)]="toDate">
+                </div>
+
+                <!-- Clear button: Only enabled if any field is filled -->
+                <div class="col-12 mt-20 mb-20" *ngIf="applicationNumber || accountNumber || fromDate || toDate">
+                    <button class="btn td-btn-secondary-clear w-100" (click)="clear()">Clear</button>
+                </div>
+
+                <!-- Search button: Disabled until at least one field is filled -->
+                <div class="col-12 mb-20">
+                    <button class="btn td-btn-primary-light w-100"
+                        [disabled]="!applicationNumber && !accountNumber && !fromDate && !toDate"
+                        (click)="search()">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
