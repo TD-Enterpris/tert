@@ -1,0 +1,14 @@
+<div class="login-container">
+    <h1>Logging in...</h1>
+    
+    <!-- Spinner displayed when isLoading is true -->
+    <div *ngIf="isLoading" class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  
+    <!-- Content below will show when loading is complete -->
+    <div *ngIf="!isLoading">
+      <!-- Add any additional content like messages or login info here -->
+    </div>
+  </div>
+  

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';  // Import environment configuration
 
 interface SessionData {
   userId: string;
@@ -16,18 +17,37 @@ interface SessionData {
 })
 export class AuthService {
 
-  private validateSessionUrl = 'http://localhost:8080/api/session/validate';  // API URL for session validation
-  private logoutUrl = 'http://localhost:8080/api/session/logout';  // API URL for logout
+  // URLs now fetched from environment configuration
+  private validateSessionUrl = `${environment.oauth.baseUrl}${environment.oauth.validateSessionUrl}`;  // API URL for session validation
+  private logoutUrl = `${environment.oauth.baseUrl}${environment.oauth.logoutUrl}`;  // API URL for logout
+  private ssoLoginUrl = `${environment.sso.baseUrl}?client_id=${environment.sso.clientId}&response_type=${environment.sso.responseType}&redirect_uri=${environment.sso.redirectUri}&scope=${environment.sso.scope}`;
+
   private isSessionActive = false;  // Track if session is active
   private callInProgress = false;  // Prevent duplicate API calls
+  private initiateInProgress = false;  // Track if initiate API is in progress
+  private validationBlocked = new BehaviorSubject<boolean>(false);  // Default to not blocked
+  public validationBlocked$: Observable<boolean> = this.validationBlocked.asObservable();  // Expose the observable
+
+  // Method to block or unblock validation
+  setValidationBlocked(isBlocked: boolean): void {
+    this.validationBlocked.next(isBlocked);  // Set whether validation is blocked
+  }
 
   // BehaviorSubject to store the session data and make it accessible across the app
   private sessionSubject = new BehaviorSubject<SessionData | null>(null);
   public session$ = this.sessionSubject.asObservable();
 
-  private ssoLoginUrl = 'http://localhost:3000/as/authorization.oauth2?client_id=43b82c47-ca7a-4876-8b0d-53350b61d58d&response_type=code&redirect_uri=http://localhost:4200/login&scope=prts.rcint.prts.rw+prts.rcint.prts.r+openid+TD_Custom_memberOf';
-
   constructor(private http: HttpClient, private router: Router) {}
+
+  // Method to check if session is initialized
+  public isSessionInitialized(): boolean {
+    return this.isSessionActive;  // Return whether the session is active
+  }
+
+  // Check if initiate API is in progress
+  public isInitiateInProgress(): boolean {
+    return this.initiateInProgress;  // Return if initiate is in progress
+  }
 
   // Method to check if session is already stored in memory
   private isSessionStored(): boolean {
@@ -37,12 +57,19 @@ export class AuthService {
   // Method to store session details after successful initiation or validation
   private storeSessionDetails(sessionData: SessionData): void {
     this.isSessionActive = true;  // Mark session as active
+    this.initiateInProgress = false;  // Mark initiate as complete
     this.sessionSubject.next(sessionData);  // Update the session BehaviorSubject
     console.log('Stored session details:', sessionData);
   }
 
   // Method to handle session validation on page load/refresh
   validateSessionOnLoad(): Observable<boolean> {
+    // If initiate API is in progress, stop the validate API call
+    if (this.isInitiateInProgress()) {
+      console.log('Initiate API is in progress, blocking validation.');
+      return of(false);  // Block validation if initiate is in progress
+    }
+
     // Check if the session is already stored in memory
     if (this.isSessionStored()) {
       console.log('Session already in memory, skipping validate API call.');
@@ -87,7 +114,7 @@ export class AuthService {
         return of(false);
       })
     );
-  }  
+  }
 
   // Logout Method
   logout(): void {
@@ -107,13 +134,13 @@ export class AuthService {
   initiateSession(sessionData: any): void {
     console.log('Initiating session:', sessionData);
 
-    // If session initiation is in progress, block other initiation calls
-    if (this.callInProgress) {
+    // Prevent multiple initiate calls if one is in progress
+    if (this.initiateInProgress) {
       console.log('Session initiation already in progress, skipping duplicate call.');
       return;
     }
 
-    this.callInProgress = true;  // Set call in progress
+    this.initiateInProgress = true;  // Set initiate call in progress
 
     const currentRole = sessionData.TD_memberOf[0];  // Active role is the first one in TD_memberOf
     const inactiveRoles = sessionData.TD_memberOf.slice(1);  // Remaining roles as inactive
@@ -127,6 +154,7 @@ export class AuthService {
 
     this.storeSessionDetails(transformedSessionData);  // Store session details
     this.callInProgress = false;  // Reset in-progress flag after initiation is done
+    this.initiateInProgress = false;  // Mark initiate call as done
   }
 
   // Method to update roles (active and inactive roles) in the session
@@ -140,7 +168,7 @@ export class AuthService {
   }
 
   // Method to redirect to the SSO login page if no valid session is found
-  private redirectToSSO(): void {
+  public redirectToSSO(): void {  // Change from private to public
     console.log('Redirecting to SSO login page.');
     window.location.href = this.ssoLoginUrl;  // Redirect to the SSO login page
   }
@@ -150,6 +178,7 @@ export class AuthService {
     console.log('Resetting session...');
     this.isSessionActive = false;
     this.callInProgress = false;
+    this.initiateInProgress = false;  // Reset initiate flag
     this.sessionSubject.next(null);  // Reset the session in memory
   }
 

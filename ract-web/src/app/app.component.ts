@@ -1,44 +1,66 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './components/shared/modal/modal.component';
+import { fromEvent, Subscription } from 'rxjs';
+import { throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit, OnInit {
+export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
   idleTime: number = 0;
-  idleLimit: number = 2 * 60 * 1000; // 1 minute idle time
+  idleLimit: number = 2 * 60 * 1000; // 2 minutes idle time
   warningTime: number = 1 * 60 * 1000; // 1 minute warning before showing modal
   private modalVisible: boolean = false;
   private modalRef: any = null;
 
-  constructor(private authService: AuthService, private router: Router, private modalService: NgbModal) {}
+  // Initialize the subscriptions to null
+  private mouseMoveSub: Subscription | null = null;
+  private keyPressSub: Subscription | null = null;
+  private clickSub: Subscription | null = null;
+
+  constructor(
+    private authService: AuthService, 
+    private router: Router, 
+    private route: ActivatedRoute,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
-    // Subscribe to the session state from the AuthService
-    this.authService.validateSessionOnLoad().subscribe(isValid => {
-      if (isValid) {
-        console.log('Session is valid.');
-        this.redirectBasedOnRole();  // Call function to redirect based on role
-        this.resetIdleTimer();  // Start the idle timer if session is valid
+    // Check if there's a 'code' parameter in the URL
+    this.route.queryParams.subscribe(params => {
+      const authCode = params['code'];
+
+      if (authCode) {
+        // If the code exists, block validation and redirect to login to handle the initiate API
+        console.log('Authorization code found. Blocking validation and redirecting to login.');
+        this.authService.setValidationBlocked(true);  // Block validation
+        this.router.navigate(['/login'], { queryParams: { code: authCode } });
       } else {
-        console.log('Session is invalid or not found.');
-        this.router.navigate(['/login']);  // Redirect to login if session is invalid
+        // If no code is found, proceed with session validation
+        this.authService.setValidationBlocked(false);  // Unblock validation
       }
     });
 
-    // Add event listeners to reset idle timer on user activity
-    window.addEventListener('mousemove', () => this.resetIdleTimer());
-    window.addEventListener('keypress', () => this.resetIdleTimer());
-    window.addEventListener('click', () => this.resetIdleTimer());
+    // Add throttled event listeners to reset idle timer on user activity
+    this.mouseMoveSub = fromEvent(window, 'mousemove').pipe(throttleTime(500)).subscribe(() => this.resetIdleTimer());
+    this.keyPressSub = fromEvent(window, 'keypress').pipe(throttleTime(500)).subscribe(() => this.resetIdleTimer());
+    this.clickSub = fromEvent(window, 'click').pipe(throttleTime(500)).subscribe(() => this.resetIdleTimer());
   }
 
   ngAfterViewInit() {
     this.resetIdleTimer();  // Start the idle timer after view initialization
+  }
+
+  ngOnDestroy(): void {
+    // Unsubscribe from event listeners to prevent memory leaks
+    if (this.mouseMoveSub) this.mouseMoveSub.unsubscribe();
+    if (this.keyPressSub) this.keyPressSub.unsubscribe();
+    if (this.clickSub) this.clickSub.unsubscribe();
   }
 
   // Function to reset the idle timer
@@ -88,7 +110,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     // Optionally, you can revalidate the session
     this.authService.validateSessionOnLoad().subscribe(isValid => {
       if (!isValid) {
-        this.router.navigate(['/login']);  // Redirect to login if session is invalid
+        this.authService.redirectToSSO();  // Redirect to SSO if session is invalid
       }
     });
   }
@@ -99,9 +121,8 @@ export class AppComponent implements AfterViewInit, OnInit {
     if (this.modalRef) {
       this.modalRef.close();  // Close the modal
     }
-    this.router.navigate(['/login']);  // Redirect to login after logout
+    this.authService.redirectToSSO();  // Redirect to SSO after logout
   }
-  
 
   // Function to redirect based on the user’s role
   redirectBasedOnRole(): void {

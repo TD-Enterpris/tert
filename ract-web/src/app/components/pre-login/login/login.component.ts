@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../../services/auth.service';  // Import AuthService
+import { environment } from '../../../../environments/environment';  // Import environment to get API URL
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,8 @@ import { AuthService } from '../../../services/auth.service';  // Import AuthSer
 export class LoginComponent implements OnInit {
 
   private sessionInitiated = false;  // Add flag to prevent duplicate calls
+  public isLoading = false;  // Add flag to track loading state
+  public validateBlocked = true;  // Block validation initially
 
   constructor(
     private route: ActivatedRoute, 
@@ -26,17 +29,24 @@ export class LoginComponent implements OnInit {
       if (code && !this.sessionInitiated) {  // Prevent duplicate session initiation
         console.log('Authorization code captured:', code);
         this.sessionInitiated = true;  // Set flag to true to prevent re-initiation
-        // Call the initiate API with the captured code
+        this.isLoading = true;  // Set loading state to true
+
+        // Inform AuthService that validation should be blocked
+        this.authService.setValidationBlocked(true);
+
+        // Call the initiate API with the captured code before clearing the URL
         this.callInitiateSessionApi(code);
       } else if (!code) {
         console.log('No authorization code found in the URL.');
+        this.authService.setValidationBlocked(false);  // Inform AuthService that validation can proceed
+        this.authService.redirectToSSO();  // Redirect to SSO if no authorization code
       }
     });
   }
 
   // Method to call the initiate API with the captured authorization code
   callInitiateSessionApi(code: string): void {
-    const apiUrl = 'http://localhost:8080/api/session/initiate';
+    const apiUrl = `${environment.oauth.baseUrl}${environment.oauth.initiateSessionUrl}`;  // Get initiate session URL from environment
     const body = { code };  // Send the authorization code in the body
 
     console.log('Sending authorization code to initiate API:', code);
@@ -46,22 +56,39 @@ export class LoginComponent implements OnInit {
       (response) => {
         console.log('Session initiated successfully:', response);
 
-        // Log session data being sent to AuthService
-        console.log('Sending session data to AuthService for storage:', response);
-
         // Store the entire session response in memory using AuthService
         this.authService.initiateSession(response);  // Use initiateSession from AuthService
 
         console.log('Session data stored in AuthService.');
 
+        // Now clear the authorization code from the URL to prevent reprocessing
+        this.clearAuthorizationCodeFromUrl();
+
+        // Unblock validation after the session is initiated
+        this.authService.setValidationBlocked(false);
+
         // Redirect based on TD_memberOf
         this.handleGroupRedirection(response.TD_memberOf);
+        this.isLoading = false;  // Turn off the spinner after successful response
       },
       (error) => {
         console.error('Error initiating session:', error);
         this.sessionInitiated = false;  // Reset flag if initiation failed
+        this.isLoading = false;  // Turn off the spinner in case of error
+        this.authService.setValidationBlocked(false);  // Unblock validation to allow retry
+        this.authService.redirectToSSO();  // Redirect to SSO if initiation failed
       }
     );
+  }
+
+  // Method to clear authorization code from URL
+  clearAuthorizationCodeFromUrl(): void {
+    console.log('Clearing authorization code from the URL.');
+    this.router.navigate([], {
+      replaceUrl: true,
+      queryParams: { code: null },  // Remove 'code' from URL
+      queryParamsHandling: 'merge'
+    });
   }
 
   // Method to handle redirection based on TD_memberOf
@@ -83,8 +110,5 @@ export class LoginComponent implements OnInit {
     } else {
       console.log('Unrecognized role, staying on login.');
     }
-
-    // Remove the 'code' parameter and stop further reprocessing
-    this.router.navigate(['/dashboard'], { replaceUrl: true });  // Replace URL after processing the code
   }
 }
