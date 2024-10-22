@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
 
   clientId: '43b82c47-ca7a-4876-8b0d-53350b61d58d',
   ssoUrl: 'http://localhost:8080/as/authorization.oauth2',  // Local SSO server

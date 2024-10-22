@@ -1,49 +1,22 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { SearchResultsDataService } from '../../../services/search-results-data.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit, OnDestroy {
+export class TableComponent {
 
-  accounts: { accountNumber: string, applicationDate: string, source: string, productPackage: string }[] = [];
+  // Map to track which rows are expanded or collapsed
   rowExpanded: { [key: string]: boolean } = {};
-  searchResultsSubscription: Subscription | undefined;
 
-  constructor(private searchResultsDataService: SearchResultsDataService) {}
-
-  ngOnInit(): void {
-    this.searchResultsSubscription = this.searchResultsDataService.getSearchResults().subscribe((result: any) => {
-      console.log('Raw search results received:', result);
-
-      if (result && result.data && result.data.length > 0) {
-        this.accounts = result.data.map((item: any) => ({
-          accountNumber: item?.loanDetails?.accounts?.[0]?.accountNumber || 'N/A',
-          applicationDate: item?.loanDetails?.applicationDate || 'N/A',
-          source: item?.loanDetails?.source || 'N/A',
-          productPackage: item?.loanDetails?.accounts?.[0]?.productPackage || 'N/A'
-        }));
-        console.log('Mapped accounts data:', this.accounts);
-      } else {
-        console.log('No data received.');
-      }
-    });
-  }
-
+  // Method to toggle the row's expanded state
   toggleRow(rowId: string): void {
-    this.rowExpanded[rowId] = !this.rowExpanded[rowId];
+    this.rowExpanded[rowId] = !this.rowExpanded[rowId];  // Toggle state
   }
 
+  // Method to check if a row is expanded
   isRowExpanded(rowId: string): boolean {
-    return !!this.rowExpanded[rowId];
-  }
-
-  ngOnDestroy(): void {
-    if (this.searchResultsSubscription) {
-      this.searchResultsSubscription.unsubscribe();
-    }
+    return !!this.rowExpanded[rowId];  // Return true if expanded
   }
 }

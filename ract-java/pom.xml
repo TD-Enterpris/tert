@@ -68,14 +68,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Optional: For using Spring Boot DevTools for hot reload (remove in production) -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-
 		<dependency>
 			<groupId>com.nimbusds</groupId>
 			<artifactId>nimbus-jose-jwt</artifactId>

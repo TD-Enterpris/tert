@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgbOffcanvas, NgbOffcanvasRef } from '@ng-bootstrap/ng-bootstrap';
 import { DemographicInfoComponent } from '../../../post-login/demographic-info/demographic-info.component';
 import { EmailCommunicationComponent } from '../../../post-login/email-communication/email-communication.component';
@@ -10,9 +10,6 @@ import { EmailCommunicationComponent } from '../../../post-login/email-communica
 })
 export class ExpandedRowComponent {
 
-  // Input property to receive account data from the parent component
-  @Input() account: any;
-
   constructor(private offcanvasService: NgbOffcanvas) {}
 
   // Method to open the offcanvas based on type (demographic or email)
@@ -20,18 +17,21 @@ export class ExpandedRowComponent {
     let offcanvasRef: NgbOffcanvasRef | null = null; // Initialize as null
 
     if (type === 'demographic') {
+      // Open the offcanvas and assign it to the variable
       offcanvasRef = this.offcanvasService.open(DemographicInfoComponent, { 
         ariaLabelledBy: 'Demographic Info',
         position: 'end',
         panelClass: 'custom-offcanvas',  // Specify the position ('start', 'end', 'top', 'bottom')
       });
     } else if (type === 'email') {
+      // Open the offcanvas and assign it to the variable
       offcanvasRef = this.offcanvasService.open(EmailCommunicationComponent, { 
         ariaLabelledBy: 'Email Communication',
         position: 'end',
       });
     }
 
+    // Check if offcanvasRef exists, then pass it to the component instance
     if (offcanvasRef) {
       offcanvasRef.componentInstance.offcanvasRef = offcanvasRef;
     }

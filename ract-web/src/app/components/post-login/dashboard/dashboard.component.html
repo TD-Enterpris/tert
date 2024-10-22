@@ -3,11 +3,8 @@
     <div class="col-12">
       <!-- If the user is part of the PDI-RACT-GA group -->
       <div class="row" *ngIf="isGaGroup">
-        <div class="col-12 col-sm-auto col-md-auto col-lg-auto">
-          <app-search-results-by></app-search-results-by>
-        </div>
-        <div class="col-12 col-sm col-md col-lg border-start">
-          <app-search-results-table></app-search-results-table>
+        <div class="col-12">
+          <app-search-results></app-search-results>
         </div>
       </div>
 

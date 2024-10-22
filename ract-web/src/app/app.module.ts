@@ -31,7 +31,7 @@ import { ExpandedRowComponent } from './components/shared/table/expanded-row/exp
 // HealthCheck Component
 import { HealthcheckComponent } from './components/healthcheck/healthcheck.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ModalComponent } from './components/shared/modal/modal.component';
+import { SearchResultsComponent } from './components/post-login/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -59,14 +59,14 @@ import { ModalComponent } from './components/shared/modal/modal.component';
 
     // HealthCheck Component
     HealthcheckComponent,
-     ModalComponent
+     SearchResultsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule // Add FormsModule here
   ],
   providers: [],
   bootstrap: [AppComponent]

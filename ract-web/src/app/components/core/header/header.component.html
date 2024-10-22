@@ -1,139 +1,120 @@
 <header class="td-header-nav sticky-top">
-  <a class="td-skip-main td-link-inline" href="#main" (click)="skipToMain($event)">Skip to main content</a>
-  
+  <a class="td-skip-main td-link-inline" href="#main">Skip to main content</a>
+
   <!-- Mobile Navigation -->
-  <nav class="td-mobile-nav" aria-label="Mobile Navigation" role="navigation">
+  <nav class="td-mobile-nav" aria-label="Mobile - Main Navigation">
     <div class="td-header-nav-top">
-      <div class="container-fluid">
-      </div>
+      <div class="container-fluid"></div>
     </div>
-    
+
     <div class="td-header-nav-main">
       <div class="container">
         <div class="td-header-nav-main-start align-items-center d-flex">
-          <!-- Mobile Hamburger Menu -->
-          <button class="td-mobile-hamburgerMenu" aria-expanded="false" aria-controls="mobile-navigation" aria-label="Toggle Navigation">
+          <button class="td-mobile-hamburgerMenu" aria-expanded="false">
             <div class="td-mobile-hamburgerMenu-bar-1"></div>
             <div class="td-mobile-hamburgerMenu-bar-2"></div>
             <div class="td-mobile-hamburgerMenu-bar-3"></div>
-            <span class="visually-hidden">Open Navigation Menu</span>
-            <span class="visually-hidden">Close Navigation Menu</span>
+            <span class="td-mobile-hamburgerMenu-closeStateTxt visually-hidden" aria-hidden="false">
+              Open Navigation Menu
+            </span>
+            <span class="td-mobile-hamburgerMenu-openStateTxt visually-hidden" aria-hidden="true">
+              Close Navigation Menu
+            </span>
           </button>
-          
           <a href="#" class="td-logo td-sapphire-d-none">
-            <img src="../../../../assets/img/td-logo.png" alt="TD Company Logo">
+            <img src="../../../../assets/img/td-logo.png" alt="TD">
           </a>
-          
           <span class="logo_text d-flex ps-10">Commercial</span>
         </div>
       </div>
     </div>
-    
-    <!-- Mobile Navigation Menu -->
-    <div class="td-header-nav-menu" id="mobile-navigation">
+
+    <div class="td-header-nav-menu">
       <div class="td-mobile-nav-menu-header">
         <div class="container">
-          <div class="td-mobile-nav-menu-header-content">
-          </div>
+          <div class="td-mobile-nav-menu-header-content"></div>
         </div>
       </div>
-      
+
       <div class="td-mobile-nav-menu-body">
         <div class="td-mobile-nav-menu-body-container">
           <h3 class="td-mobile-nav-group-title display-6">GoldenBox</h3>
           <div class="td-mobile-nav-menu-section"></div>
           <hr class="td-thin-divider-line-1">
-          
           <div class="td-mobile-nav-menu-section">
             <h4 class="td-mobile-nav-menu-section-heading">User Profile</h4>
             <ul>
               <li>
-                <span class="pe-20 ps-20 pt-8 pb-8">
-                  <!-- Dynamically show the user ID fetched from AuthService -->
-                  {{ userId }}
-                </span>
+                <span class="pe-20 ps-20 pt-8 pb-8">Username: {{ userId }}</span>
               </li>
               <span class="pe-20 ps-20 pt-8 pb-8">
-                <button class="btn btn-primary" *ngIf="showToggleButton" (click)="toggleRole()" aria-label="Switch role">
-                  Switch to {{ currentRole === 'PDI-RACT-GA' ? 'PDI-RACT-ADMIN' : 'PDI-RACT-GA' }}
+                <button class="btn btn-primary" *ngIf="showToggleButton" (click)="toggleRole()">
+                  Switch to {{ currentRole === 'PDI-RACT-GA' ? 'Admin User' : 'Standard User' }}
                 </button>
               </span>
             </ul>
           </div>
-          
           <div class="td-mobile-nav-menu-utilities p-15">
             <ul>
               <li>
-                <button class="btn td-btn-primary-light w-100" (click)="logout()" aria-label="Logout">Logout</button>
+                <button class="btn td-btn-primary-light w-100" (click)="logout()">
+                  Logout
+                </button>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+
     <div class="td-overlay"></div>
   </nav>
 
   <!-- Desktop Navigation -->
-  <nav aria-label="Desktop Navigation" role="navigation">
+  <nav aria-label="Desktop Main Navigation">
     <div class="td-header-nav-main">
       <div class="container-fluid d-flex align-items-center justify-content-between">
-        
-        <!-- Logo & Title -->
+
+        <!-- Left Side (Logo) -->
         <div class="td-header-nav-main-start w-100 d-flex align-items-center">
           <a href="#" class="td-logo td-saffhire-d-none d-flex align-items-center">
-            <img src="../../../../assets/img/td-logo.png" alt="TD Company Logo">
+            <img src="../../../../assets/img/td-logo.png" alt="TD">
             <span class="logo-text d-flex ps-10">Commercial</span>
           </a>
         </div>
-        
+
+        <!-- Center Section (Title) -->
         <div class="td-header-nav-main-center w-100 d-flex align-items-center">
           <h1>GoldenBox</h1>
         </div>
-        
-        <!-- User Dropdown for Desktop -->
-        <div class="td-header-nav-main-end w-100 d-flex align-items-center" *ngIf="isAuthenticated">
+
+        <!-- Right Side (User Menu) -->
+        <div class="td-header-nav-main-end w-100 d-flex align-items-center">
           <ul>
-            <li class="td-header-nav-dropdown td-header-nav-main-dropdown">
-              <a role="button" tabindex="0" [attr.aria-expanded]="isDropdownOpen ? 'true' : 'false'"
-              id="td-header-nav-dropdown-19328" aria-controls="user-menu" 
-              class="td-header-nav-dropdown-close" aria-label="User menu"
-              (keydown)="handleKeydown($event)" (click)="toggleDropdown()">
-                <!-- Display user ID here dynamically -->
-                {{ userId }}
-                <span class="td-icon td-icon-login text-td-colour-bg-5 bg-td-colour-primary p-5 rounded-5 ms-10 me-10"></span>
+            <li class="td-header-nav-dropdown td-header-nav-main-dropdwon">
+              <a role="button" tabindex="0" aria-expanded="false" id="td-header-nav-dropdwon-19328"
+                class="td-header-nav-dropdown-close">
+                Username: {{ userId }}
+                <span
+                  class="td-icon td-icon-login text-td-colour-bg-5 bg-td-colour-primary p-5 rounded-5 ms-10 me-10"></span>
               </a>
-          
-              <!-- User Menu Dropdown -->
-              <ul id="user-menu" class="td-header-nav-dropdown-items td-header-nav-dropdown-items-end"
-              aria-labelledby="td-header-nav-dropdown-19328"
-              [class.show]="isDropdownOpen" role="menu">
-            
-            <li role="menuitem">
-              <button class="btn td-btn-tertiary" *ngIf="showToggleButton" 
-                      (click)="toggleRole()" aria-label="Switch role" tabindex="0">
-                Switch to {{ currentRole === 'PDI-RACT-GA' ? 'PDI-RACT-ADMIN' : 'PDI-RACT-GA' }}
-              </button>
-            </li>
-            
-            <li role="menuitem">
-              <div class="bg-td-colour-bg-3 p-5">
-                <button class="btn td-btn-secondary-clear-white w-100" 
-                (click)="logout()" role="button" tabindex="0" aria-label="Logout">
-          Logout
-        </button>
-              </div>
+              <ul class="td-header-nav-dropdown-items td-header-nav-dropdown-items-end"
+                aria-labelledby="td-header-nav-dropdwon-19328">
+                <li>
+                  <button class="btn btn-primary" *ngIf="showToggleButton" (click)="toggleRole()">
+                    Switch to {{ currentRole === 'PDI-RACT-GA' ? 'Admin User' : 'Standard User' }}
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-block td-btn-primary-light w-100" (click)="logout()">
+                    Logout
+                  </button>
+                </li>
+              </ul>
             </li>
           </ul>
-          
-          
-            
-          
-            </li>
-          </ul>          
         </div>
       </div>
     </div>
   </nav>
-  
 </header>

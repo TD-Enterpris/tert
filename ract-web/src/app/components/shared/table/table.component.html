@@ -1,49 +1,33 @@
-<!-- Only display the table if there are accounts in the search result -->
-<table class="table" *ngIf="accounts && accounts.length > 0">
-  <thead>
-    <tr>
-      <!-- Ensure column headers have appropriate scope -->
-      <th scope="col" class="tableCollpse-hdr"></th>
-      <th scope="col">Account Number</th>
-      <th scope="col">Application Date</th>
-      <th scope="col">Source</th>
-      <th scope="col">Product Package</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- Table Row for Account with aria-expanded and aria-controls for accessibility -->
-    <tr *ngFor="let account of accounts; let i = index" 
-        (click)="toggleRow('expandedRow' + i)" 
-        [class.table-expanded]="isRowExpanded('expandedRow' + i)" 
-        [attr.aria-expanded]="isRowExpanded('expandedRow' + i)" 
-        role="row">
-      <td scope="col" class="tableCollpse-dby p-15 align-middle" role="cell">
-        <button class="btn btn-link" type="button" 
-                [attr.aria-controls]="'expandedRow' + i" 
-                [attr.aria-expanded]="isRowExpanded('expandedRow' + i)"
-                [attr.aria-label]="isRowExpanded('expandedRow' + i) ? 'Collapse row for account ' + account.accountNumber : 'Expand row for account ' + account.accountNumber">
-          <span class="td-icon" 
-                [ngClass]="{'td-icon-expand': !isRowExpanded('expandedRow' + i), 'td-icon-collapse': isRowExpanded('expandedRow' + i)}">
-          </span>
-        </button>
-      </td>
-      <!-- Dynamically fetching values from API response -->
-      <td scope="col" data-title="Account Number" class="p-15 align-middle" role="cell">{{ account.accountNumber }}</td>
-      <td scope="col" data-title="Application Date" class="p-15 align-middle" role="cell">{{ account.applicationDate | date }}</td>
-      <td scope="col" data-title="Source" class="p-15 align-middle" role="cell">{{ account.source }}</td>
-      <td scope="col" data-title="Product Package" class="p-15 align-middle" role="cell">{{ account.productPackage }}</td>
-    </tr>
-
-    <!-- Expanded Row Content -->
-    <tr *ngFor="let account of accounts; let i = index" 
-        id="expandedRow{{i}}" 
-        [ngClass]="{'collapse': !isRowExpanded('expandedRow' + i), 'show': isRowExpanded('expandedRow' + i)}" 
-        [attr.aria-hidden]="!isRowExpanded('expandedRow' + i)" role="row">
-      <td colspan="5" class="p-0" role="cell">
-        <!-- Pass account data to the expanded-row component -->
-        <app-expanded-row [account]="account"></app-expanded-row>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="tableCollpse-hdr"></th>
+        <th scope="col">Account Number</th>
+        <th scope="col">Application Date</th>
+        <th scope="col">Source</th>
+        <th scope="col">Product Package</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table Row for Account -->
+      <tr (click)="toggleRow('expandedRow1')" [class.table-expanded]="isRowExpanded('expandedRow1')">
+        <td scope="col" class="tableCollpse-dby p-15 align-middle">
+          <button class="btn btn-link" type="button">
+            <span class="td-icon" [ngClass]="{'td-icon-expand': !isRowExpanded('expandedRow1'), 'td-icon-collapse': isRowExpanded('expandedRow1')}"></span>
+          </button>
+        </td>
+        <td scope="col" data-title="Account Number" class="p-15 align-middle">4829572146</td>
+        <td scope="col" data-title="Application Date" class="p-15 align-middle">11/19/2023</td>
+        <td scope="col" data-title="Source" class="p-15 align-middle">Commercial</td>
+        <td scope="col" data-title="Product Package" class="p-15 align-middle">1.0</td>
+      </tr>
+  
+      <!-- Expanded Row Content -->
+      <tr id="expandedRow1" [ngClass]="{'collapse': !isRowExpanded('expandedRow1'), 'show': isRowExpanded('expandedRow1')}">
+        <td colspan="5" class="p-0">
+          <app-expanded-row></app-expanded-row>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

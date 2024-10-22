@@ -9,18 +9,12 @@
                 <!-- Error message display -->
                 <div class="td-temporal-message bg-warning mb-20" *ngIf="errorMessage">
                     <div class="d-flex align-items-center">
-                      <span aria-hidden="true" class="td-icon icon-regular td-icon-warning"></span>
-                      <span class="visually-hidden">Confirmation</span>
-                      <p>{{ errorMessage }}</p>
-                      <!-- Close button with click handler to remove error message and clear inputs -->
-                      <button class="td-icon-button-delete td-icon-button-delete-xs" 
-                              aria-label="close" 
-                              (click)="clearErrorMessage()"> <!-- Added click handler -->
-                        <span aria-hidden="true">×</span>
-                      </button>
+                        <span aria-hidden="true" class="td-icon icon-regular td-icon-warning"></span>
+                        <span class="visually-hidden">Confirmation</span>
+                        <p>{{ errorMessage }}</p>
+                        <button class="td-icon-button-delete td-icon-button-delete-xs" aria-label="close"></button>
                     </div>
-                  </div>
-                  
+                </div>
 
                 <!-- Input for Application Number -->
                 <div class="col-12 mb-20">
